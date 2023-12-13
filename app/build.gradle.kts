@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "ca.qc.bdeb.a17.myapplication"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "ca.qc.bdeb.a17.myapplication"
