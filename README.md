@@ -8,4 +8,5 @@ Ma section a moi Francis Lebel(1546042):
   5. Initialisation du bouton ajouter livre pour quil s'ajoute a la database
   6. Formatage des different Layout
   7. Création d'un floating Action button
+  8. Implémentation de Room
 De mon coté tout fonctionne pour mes choses
