@@ -1,5 +1,6 @@
 package ca.qc.bdeb.a17.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -29,9 +30,10 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId)
         {
-            R.id.item1 ->
+            R.id.book_library ->
             {
-                Toast.makeText(this, "Item 1 sélectionné", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Activité bibliothèque sélectionné", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, BookLibrary::class.java))
                 return true
             }
             R.id.item2 ->
