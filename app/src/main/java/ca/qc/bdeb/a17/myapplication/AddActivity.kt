@@ -1,12 +1,16 @@
 package ca.qc.bdeb.a17.myapplication
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import ca.qc.bdeb.a17.myapplication.SQL.MyDatabase
+import ca.qc.bdeb.a17.myapplication.DAO.Entity.Book
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AddActivity : AppCompatActivity() {
 
@@ -33,12 +37,31 @@ class AddActivity : AppCompatActivity() {
 
         // Définir le listener du bouton
         addButton.setOnClickListener {
-            val myDB = MyDatabase(this@AddActivity)
-            myDB.ajouterLivre(
-                titleInput.text.toString().trim(),
-                authorInput.text.toString().trim(),
-                pagesInput.text.toString().trim().toInt()
-            )
+            val myDB = BookLibrary.database
+
+
+            // Utiliser une coroutine pour appeler la fonction suspendue du DAO
+            GlobalScope.launch(Dispatchers.IO) {
+                try {
+                    myDB.bookDao().insertBook(
+                        Book(
+                            title = titleInput.text.toString().trim(),
+                            author = authorInput.text.toString().trim(),
+                            pages = pagesInput.text.toString().trim().toInt()
+                        )
+                    )
+
+                    // Si l'insertion réussit, affichez un toast dans le thread principal
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@AddActivity, "Livre ajouté avec succès", Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: Exception) {
+                    // En cas d'échec, affichez un toast d'erreur dans le thread principal
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@AddActivity, "Échec de l'ajout du livre", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
         }
     }
 }
