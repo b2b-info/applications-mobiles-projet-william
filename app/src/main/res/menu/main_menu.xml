@@ -3,8 +3,8 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/book_library"
-        android:title="Activité 1"
+        android:id="@+id/clear_db"
+        android:title="Effacer les données"
         app:showAsAction="never" />
     <item
         android:id="@+id/list_activity"

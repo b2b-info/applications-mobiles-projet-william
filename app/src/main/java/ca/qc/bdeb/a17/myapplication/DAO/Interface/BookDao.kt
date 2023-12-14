@@ -12,4 +12,7 @@ interface BookDao {
 
     @Query("SELECT * FROM livres")
     fun getAllBooks(): List<Book>
+
+    @Query("DELETE FROM livres")
+    suspend fun deleteAllBooks()
 }
