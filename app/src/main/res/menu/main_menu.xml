@@ -12,5 +12,11 @@
         app:showAsAction="never"
         />
 
+    <item
+        android:id="@+id/commandit_activity"
+        android:title="Commandite"
+        app:showAsAction="never"
+        />
+
 
 </menu>

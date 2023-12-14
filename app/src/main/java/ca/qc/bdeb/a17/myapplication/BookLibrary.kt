@@ -58,6 +58,7 @@ class BookLibrary : AppCompatActivity() {
         when (item.itemId) {
             R.id.list_activity -> openListActivity()
             R.id.clear_db -> clearDatabase()
+            R.id.commandit_activity -> openCommanditeActivity()
 
         }
         return super.onOptionsItemSelected(item)
@@ -81,6 +82,12 @@ class BookLibrary : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun openCommanditeActivity()
+    {
+        val intent = Intent(this, CommanditeActivity::class.java)
+        startActivity(intent)
     }
 }
 

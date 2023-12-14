@@ -19,6 +19,12 @@
             android:exported="false" />
 
         <activity
+            android:name=".CommanditeActivity"
+            android:label="COmmandite"
+            android:parentActivityName=".BookLibrary"
+            android:exported="false" />
+
+        <activity
             android:name=".ListActivity"
             android:label="Afficher liste"
             android:parentActivityName=".BookLibrary"
