@@ -10,13 +10,16 @@ Ma section a moi Francis Lebel(1546042):
   7. Création d'un floating Action button
   8. Implémentation de Room
 De mon coté tout fonctionne pour mes choses
-////////
-Ma section William Lebeuf
-J'ai ajouté les activités pour lister les livres
-enregistrés dans la base de donnée, j,ai ajouter l'option
-de supprimer le tout pour aider le testing.
-J'ai également associé un API pour aller rechercher
-le titre d'un livre selon nos préférences.
+
+Ma section William Lebeuf 
+  1.J'ai ajouté les activités pour lister les livres
+    enregistrés dans la base de donnée 
+    
+  2.J'ai ajouter l'option
+    de supprimer le tout pour aider le testing.
+    
+  3.J'ai également associé un API pour aller rechercher
+    le titre d'un livre selon nos préférences.
 
 !!!J'ai eu un peu de difficulté à associer les resultats de L'API
 à notre base de donnée, alors la syncronisation des données à l'API
