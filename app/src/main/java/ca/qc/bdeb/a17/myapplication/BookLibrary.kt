@@ -3,12 +3,18 @@ package ca.qc.bdeb.a17.myapplication
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import ca.qc.bdeb.a17.myapplication.DAO.Database.AppDatabase
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class BookLibrary : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
@@ -46,6 +52,35 @@ class BookLibrary : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.list_activity -> openListActivity()
+            R.id.clear_db -> clearDatabase()
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun openListActivity() {
+        val intent = Intent(this, ListActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun clearDatabase() {
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                database.bookDao().deleteAllBooks()
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@BookLibrary, "Base de donnée vidé avec succès", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@BookLibrary, "Erreur dans la suppression des données", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 }
 

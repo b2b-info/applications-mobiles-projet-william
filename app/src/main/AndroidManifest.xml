@@ -19,6 +19,12 @@
             android:exported="false" />
 
         <activity
+            android:name=".ListActivity"
+            android:label="Afficher liste"
+            android:parentActivityName=".BookLibrary"
+            android:exported="false" />
+
+        <activity
             android:name=".BookLibrary"
             android:label="Ma bibliothèque"
             android:exported="true">
