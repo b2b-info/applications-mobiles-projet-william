@@ -11,9 +11,6 @@
         android:title="Liste des items"
         app:showAsAction="never"
         />
-    <item
-        android:id="@+id/item3"
-        android:title="Activité 3"
-        app:showAsAction="never" />
+
 
 </menu>
