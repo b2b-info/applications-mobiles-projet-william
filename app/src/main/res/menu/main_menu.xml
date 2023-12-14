@@ -17,6 +17,11 @@
         android:title="Commandite"
         app:showAsAction="never"
         />
+    <item
+        android:id="@+id/search_book"
+        android:title="Recherche livre internet"
+        app:showAsAction="never"
+        />
 
 
 </menu>

@@ -56,13 +56,23 @@ class BookLibrary : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            //la liste
             R.id.list_activity -> openListActivity()
+            //pour delete la bd
             R.id.clear_db -> clearDatabase()
+            //pour la commandite de la bibliothèque :)
             R.id.commandit_activity -> openCommanditeActivity()
+            R.id.search_book -> openOnlineSearch()
 
         }
         return super.onOptionsItemSelected(item)
     }
+
+    private fun openOnlineSearch() {
+        val intent = Intent(this, SearchActivity::class.java)
+        startActivity(intent)
+    }
+
 
     private fun openListActivity() {
         val intent = Intent(this, ListActivity::class.java)
